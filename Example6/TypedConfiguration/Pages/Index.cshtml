@@ -1,0 +1,13 @@
+﻿@page
+@model IndexModel
+@using Microsoft.Extensions.Configuration
+@using Microsoft.Extensions.Options
+@inject IOptions<ExternalApiConfiguration> options;
+
+@{
+ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@options.Value.ClientId</h1>
+</div>

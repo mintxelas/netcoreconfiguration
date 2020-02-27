@@ -15,7 +15,8 @@ namespace ConfigurationInjection.Controllers
         private readonly ExternalApiConfiguration configuration;
         private readonly ExternalApiConfiguration configurationSnapshot;
 
-        public HomeController(IOptions<ExternalApiConfiguration> options, IOptionsSnapshot<ExternalApiConfiguration> optionsSnapshot)
+        public HomeController(IOptions<ExternalApiConfiguration> options,
+            IOptionsSnapshot<ExternalApiConfiguration> optionsSnapshot)
         {
             configuration = options.Value;
             configurationSnapshot = optionsSnapshot.Value;

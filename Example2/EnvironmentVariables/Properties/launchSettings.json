@@ -10,6 +10,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
+      "commandLineArgs": "message=\"Hola.\"",
       "launchBrowser": true,
       "environmentVariables": {
         "PREFIX_MESSAGE": "a message from environment variables",

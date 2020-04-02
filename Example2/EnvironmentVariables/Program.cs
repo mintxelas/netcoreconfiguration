@@ -20,6 +20,7 @@ namespace EnvironmentVariables
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, builder) =>
                 {
+                    builder.AddCommandLine(args);
                     builder.AddEnvironmentVariables("PREFIX_");
                 })
                 .ConfigureWebHostDefaults(webBuilder =>

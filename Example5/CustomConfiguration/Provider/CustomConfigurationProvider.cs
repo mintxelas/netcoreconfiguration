@@ -4,16 +4,14 @@ using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace CustomConfiguration.Provider
 {
     public class CustomConfigurationProvider : IConfigurationProvider
     {
         private readonly string connectionString;
-        private Dictionary<string, string> dbParams = new Dictionary<string, string>();
+        private Dictionary<string, string> dbParams = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
         public CustomConfigurationProvider(string connectionString)
         {

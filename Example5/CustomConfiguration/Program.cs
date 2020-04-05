@@ -21,7 +21,7 @@ namespace CustomConfiguration
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, builder) =>
                 {
-                    var conf = builder.AddJsonFile("appsettings.json").Build();
+                    var conf = builder.Build();
                     builder.AddCustomProvider(conf["ConnectionStrings:sqlserver"]);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>

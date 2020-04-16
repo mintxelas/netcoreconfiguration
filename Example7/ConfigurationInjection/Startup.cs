@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace ConfigurationInjection
 {
@@ -24,6 +25,9 @@ namespace ConfigurationInjection
         {
             services.AddControllersWithViews();
             services.Configure<ExternalApiConfiguration>(Configuration.GetSection("ExternalApi"));
+            services.AddScoped(
+                resolver =>
+                    resolver.GetRequiredService<IOptionsSnapshot<ExternalApiConfiguration>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,12 +14,15 @@ namespace ConfigurationInjection.Controllers
     {
         private readonly ExternalApiConfiguration configuration;
         private readonly ExternalApiConfiguration configurationSnapshot;
+        private readonly ExternalApiConfiguration configurationObject;
 
         public HomeController(IOptions<ExternalApiConfiguration> options,
-            IOptionsSnapshot<ExternalApiConfiguration> optionsSnapshot)
+            IOptionsSnapshot<ExternalApiConfiguration> optionsSnapshot,
+            ExternalApiConfiguration configurationObject)
         {
             configuration = options.Value;
             configurationSnapshot = optionsSnapshot.Value;
+            this.configurationObject = configurationObject;
         }
 
         public IActionResult Index()

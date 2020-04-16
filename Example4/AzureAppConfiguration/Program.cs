@@ -20,8 +20,6 @@ namespace AzureAppConfiguration
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, builder) =>
                 {
-                    builder.AddJsonFile("appsettings.json");
-                    builder.AddUserSecrets<Program>();
                     var conf = builder.Build();
                     builder.AddAzureAppConfiguration(conf["ConnectionStrings:AzureAppConfiguration"]);
                 })
